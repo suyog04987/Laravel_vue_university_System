@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <div class="bg-success-subtle">
     <Navbar/>
     <Crousel/>
     <Card :name="universityName.value"/>
-    
+    <Footer/>
   </div>
   
 </template>
@@ -13,6 +13,7 @@
 import Navbar from './front/components/Navbar.vue';
 import Crousel from './front/components/Crousel.vue';
 import Card from './front/components/Card.vue'
+import Footer from './front/components/Footer.vue';
 import axios from 'axios';
 import { onMounted, reactive } from 'vue';
 

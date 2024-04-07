@@ -80,6 +80,7 @@
       </tbody>
     </table>
   </div>
+  <Foot/>
 </template>
 
 <script setup>
@@ -87,6 +88,7 @@ import Navbar from "../components/Navbar.vue";
 import { useFacultyStore } from "@/stores/university";
 import { onMounted, ref } from "vue";
 import { useRoute } from "vue-router";
+import Foot from "../components/Footer.vue";
 
 const route = useRoute();
 const facultyStore = useFacultyStore();

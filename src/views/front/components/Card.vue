@@ -1,15 +1,15 @@
 <template>
   <div class="container text-center py-4">
-    <div class="row align-items-start gap-4">
+    <div class="row align-items-start gap-5">
       <div
         v-for="(data, index) in name"
         :key="index"
         class="bg-dark-subtle card rounded-top-4"
-        style="width: 18rem; height: 26rem;"
+        style="width: 18rem; height: 28rem;"
       >
-        <img src="..." class="card-img-top" alt="..." />
+        <img :src="data.image_url" class="card-img-top py-1"  style="height: 7rem; width: 16rem;" alt="..." />
         <div class="card-body d-flex flex-column justify-content-evenly align-items-evenly ">
-          <h5 class="bg-primary border card-title py-2 px-2 rounded-5">
+          <h5 class="bg-primary border card-title px-1 rounded-5">
             {{ data.name }}
           </h5>
           <p class="card-text">

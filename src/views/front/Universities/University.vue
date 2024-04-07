@@ -41,6 +41,7 @@
       </div>
     </div>
   </div>
+  <Footer/>
 </template>
 
 <script setup>
@@ -49,6 +50,7 @@ import { onMounted, reactive, ref } from "vue";
 import Navbar from "../components/Navbar.vue";
 import { useUniversityStore } from "@/stores/university";
 import { useRoute } from "vue-router";
+import Footer from '../components/Footer.vue';
 
 const route = useRoute();
 const universityStore = useUniversityStore();
