@@ -50,6 +50,8 @@
 import axios from "axios";
 import { useAuthStore } from "@/stores/authStore";
 import { reactive } from "vue";
+import login from "../../services/auth"
+import router from "@/router";
 // const base_url = import.meta.env.VITE_API_URL;
 
 
@@ -62,10 +64,18 @@ const user = reactive({
 const authStore = useAuthStore();
 
 const formSubmit = async () =>{
-  const formData = new FormData();
-  formData.append("email", user.email);
-  formData.append("password", user.password);
-  authStore.login(formData);
+  try{
+    const formData = new FormData();
+    formData.append("email", user.email);
+    formData.append("password", user.password);
+    await login(formData);
+    console.log("Login Success")
+    router.push("/index");
+  }
+  catch(error){
+    console.error("Error Login:", error);
+  }
+  // authStore.login(formData);
 }
 
 

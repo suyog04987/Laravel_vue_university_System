@@ -1,69 +1,24 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import Index from '../views/DataPages/Index.vue'
-
-const isAuthenticated = () => {
-
-};
+import { createRouter, createWebHistory } from "vue-router";
+import routes from "./routes";
+import { useAuthStore } from "@/stores/authStore";
+import { useCookie } from "@/services/useCookies";
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [
-    {
-      path: '/',
-      name: 'home',
-      component: HomeView
-      
-    },
-    {
-      path: '/login',
-      name: 'login',
-      component: () => import('../views/DataPages/Login.vue')
-    },
-    {
-      path: '/index',
-      name: 'index',
-      component: Index
-    },
-    {
-      path: '/university',
-      name: 'university',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/DataPages/University.vue')
-    },
-    {
-      path: '/faculty',
-      name: 'faculty',
-      component: () => import('../views/DataPages/Faculty.vue')
-    },
-    {
-      path: '/semester',
-      name: 'semester',
-      component: () => import('../views/DataPages/Semester.vue')
-    },
-    {
-      path: '/courses',
-      name: 'courses',
-      component: () => import('../views/DataPages/Course.vue')
-    },
-    {
-      path: '/universityView/:id',
-      name: 'universityView',
-      component: () => import('../views/front/Universities/University.vue')
-    },
-    {
-      path: '/semesterView/:id',
-      name: 'SemesterView',
-      component: () => import('../views/front/semester/Semester.vue')
-    },
-    {
-      path: '/materialsView/:id',
-      name: 'MaterialView',
-      component: () => import('../views/front/Material/Material.vue')
-    }
-  ]
-})
+  history: createWebHistory(),
+  linkActiveClass: "active",
+  routes,
+});
 
-export default router
+router.beforeEach((to, from, next) => {
+  const isAuthenticated = () => {
+    return useCookie("isAuthenticated").value;
+  };
+  const accessToken = useCookie("accessToken").value;
+  if (to.meta.requiresAuth && !isAuthenticated() && !accessToken) {
+    next("/login");
+  } else {
+    next();
+  }
+});
+
+export default router;

@@ -257,6 +257,7 @@
 <script setup>
 import { onMounted, reactive, ref } from "vue";
 import axios from "axios";
+import { $api } from "@/services/api";
 
 const isModalOpen = ref(false);
 const universityID = ref("");
@@ -296,11 +297,11 @@ const universityData = ref();
 
 const fetchData = async () => {
   try {
-    const response = await axios.get(`${base_url}university`);
-    console.log(response.data);
-    universityData.value = response.data;
+    const response = await $api('/university',{
+      method: 'GET',
+    });
+    universityData.value = response;
   } catch (error) {
-    console.log(error);
   }
 };
 

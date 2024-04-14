@@ -1,8 +1,9 @@
 <template>
     <div>
-      <nav class="navbar navbar-dark bg-dark">
+      <nav class="navbar navbar-dark bg-primary">
         <div class="container-fluid">
-          <span class="navbar-brand mb-0 h1">InternProject Dashboard</span>
+          <span class="navbar-brand mb-0 h1 bg-dark">InternProject Dashboard</span>
+          <h3>Users</h3>
         </div>
       </nav>
       <div class="wrapper">
