@@ -42,10 +42,22 @@ const routes = [
     component: () => import("../views/DataPages/Semester.vue"),
   },
   {
+    path: "/testimonial",
+    name: "testimonial",
+    meta: { requiresAuth: true },
+    component: () => import("../views/DataPages/Testimonial.vue"),
+  },
+  {
     path: "/courses",
     name: "courses",
     meta: { requiresAuth: true },
     component: () => import("../views/DataPages/Course.vue"),
+  },
+  {
+    path: "/materials",
+    name: "material",
+    meta: { requiresAuth: true },
+    component: () => import("../views/DataPages/material.vue"),
   },
   {
     path: "/universityView/:id",
@@ -62,6 +74,12 @@ const routes = [
     name: "MaterialView",
     component: () => import("../views/front/Material/Material.vue"),
   },
+
+  {
+    path : "/about",
+    name : "about",
+    component : () => import("../views/AboutView.vue"),
+  }
 ];
 
 export default routes;

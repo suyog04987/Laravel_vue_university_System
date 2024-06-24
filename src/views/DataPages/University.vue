@@ -255,9 +255,9 @@
   </div>
 </template>
 <script setup>
-import { onMounted, reactive, ref } from "vue";
-import axios from "axios";
 import { $api } from "@/services/api";
+import axios from "axios";
+import { onMounted, reactive, ref } from "vue";
 
 const isModalOpen = ref(false);
 const universityID = ref("");
