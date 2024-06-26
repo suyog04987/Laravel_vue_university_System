@@ -60,6 +60,12 @@ const routes = [
     component: () => import("../views/DataPages/material.vue"),
   },
   {
+    path: "/colleges",
+    name: "college",
+    meta: { requiresAuth: true },
+    component: () => import("../views/DataPages/Colleges.vue"),
+  },
+  {
     path: "/universityView/:id",
     name: "universityView",
     component: () => import("../views/front/Universities/University.vue"),
@@ -74,11 +80,15 @@ const routes = [
     name: "MaterialView",
     component: () => import("../views/front/Material/Material.vue"),
   },
-
   {
     path : "/about",
     name : "about",
     component : () => import("../views/AboutView.vue"),
+  },
+  {
+    path : "/viewAllColleges",
+    name : "allColleges",
+    component : () => import("../views/front/CollegesAll/allCollegesView.vue"),
   }
 ];
 

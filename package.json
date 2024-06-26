@@ -12,6 +12,7 @@
   "dependencies": {
     "axios": "^1.6.7",
     "bootstrap": "^5.3.3",
+    "bootstrap-icons": "^1.11.3",
     "bootstrap-vue": "^2.23.1",
     "cookie-es": "^1.1.0",
     "jsonwebtoken": "^9.0.2",

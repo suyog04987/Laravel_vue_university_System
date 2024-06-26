@@ -3,9 +3,10 @@
     <div class="container mt-5">
       <div class="row mb-4">
         <div class="col-md-12 text-center">
-          <h1 class="heading">Study Materials</h1>
-          <p class="lead">Access a wide range of study materials to support your learning journey.</p>
-        </div>
+          <h1 class="lead">Free study notes, summaries & answers for your studies
+            </h1>
+            <p class="heading">Study easier, faster & better.</p>
+          </div>
       </div>
       
       <div class="row mb-4">

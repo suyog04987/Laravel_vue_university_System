@@ -22,7 +22,7 @@
           <span class="visually-hidden">Next</span>
         </button>
       </div>
-      <div class="bg-dark-subtle border contianer rounded-top-circle">
+      <!-- <div class="bg-dark-subtle border contianer rounded-top-circle">
       <h1 class="display-5 fw-bold">Nepal Universities</h1>
       <div class="col-lg-6 mx-auto">
         <p class="bg-dark-subtle border lead mb-4 rounded-4">
@@ -40,7 +40,7 @@
           </button>
         </div>
       </div>
-    </div>
+    </div> -->
     </div>
   </div>
 </template>

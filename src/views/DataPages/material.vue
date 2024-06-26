@@ -37,22 +37,24 @@
             <thead class="thead-dark">
                 <tr>
                     <th scope="col">SN</th>
-                    <th scope="col">Courses</th>
-                    <th scope="col">Credit Hrs</th>
+                    <th scope="col">Note</th>
+                    <th scope="col">Syllabus</th>
+                    <th scope="col">Solutions</th>
                     <th scope="col">Actions</th>
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="(courses, index) in computedCourses" :key="index">
+                <tr v-for="(material, index) in computedMaterials" :key="index">
                     <td>{{ index + 1 }}</td>
-                    <td>{{ courses.name }}</td>
-                    <td>{{ courses.credit_hrs }}</td>
+                    <td><a :href="material.noteUrl" target="#"><button class="btn btn-primary">Note</button></a></td>
+                    <td><a :href="material.syllabusUrl" target="#"><button class="btn btn-primary">Syllabus</button></a></td>
+                    <td><a :href="material.solutionUrl" target="#"><button class="btn btn-primary">Solution</button></a></td>
                     <td class="d-flex px-2">
-                        <button class="btn btn-success" @click="openModal(courses)" data-bs-toggle="modal"
+                        <button class="btn btn-success" @click="openModal(material)" data-bs-toggle="modal"
                             data-bs-target="#exampleModal1">
                             Edit
                         </button>
-                        <button @click="deleteCourses(courses.id)" class="btn btn-danger px-2 mx-2">
+                        <button @click="deleteMaterial(material.id)" class="btn btn-danger px-2 mx-2">
                             Delete
                         </button>
                     </td>
@@ -67,7 +69,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Add Semester</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Add Materials</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -116,14 +118,19 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="semesterName">Courses</label>
-                                    <input type="text" v-model="materials.name" class="form-control"
-                                        id="semesterName" />
+                                    <label for="note">Note</label>
+                                    <input type="file"  class="form-control" @change="fileNote"
+                                        id="note" />
                                 </div>
                                 <div class="form-group">
-                                    <label for="semesterName">Credit Hours</label>
-                                    <input type="text" v-model="materials.credit_hrs" class="form-control"
-                                        id="semesterName" />
+                                    <label for="syllabus">Syllabus</label>
+                                    <input type="file"  class="form-control" @change="fileSyllabus"
+                                        id="syallbus" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="solution">Solution</label>
+                                    <input type="file"  class="form-control" @change="fileSolution"
+                                        id="solution" />
                                 </div>
                                 <button type="submit" class="btn btn-primary">Submit</button>
                             </form>
@@ -145,7 +152,7 @@
         <div class="modal-dialog" v-show="isModalOpen">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Edit Semester</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Edit Material</h5>
                     <button type="button" @click="closeModal" class="btn-close" data-bs-dismiss="modal"
                         aria-label="Close"></button>
                 </div>
@@ -153,7 +160,7 @@
                     <div class="card">
                         <div class="card-body">
                             <form @submit.prevent="updateForm">
-                                <h2 class="card-title">Edit Semester</h2>
+                                <h2 class="card-title">Edit Material</h2>
                                 <div class="md-3">
                                     <label for="universitySelect">University</label>
                                     <select class="form-control" v-model="materials.university_id"
@@ -186,16 +193,31 @@
                                     </select>
                                 </div>
                                 <div class="mb-3">
-                                    <label class="form-label" for="semesterName">Courses</label>
-                                    <input v-model="materials.name" id="universityName" class="form-control" type="text"
-                                        placeholder="Enter Semester" />
+                                    <label for="faculty">Select Semester</label>
+                                    <select v-model="materials.courses_id" class="form-control my-2" id="course">
+                                        <option value="">Select Course</option>
+                                        <option v-for="(course, index) in computedCourses" :value="course.id"
+                                            :key="index">
+                                            {{ course.name }}
+                                        </option>
+                                    </select>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="semesterName">Credit Hours</label>
-                                    <input type="text" v-model="materials.credit_hrs" class="form-control"
-                                        id="semesterName" />
+                                    <label for="note">Note</label>
+                                    <input type="file"  class="form-control" @change="fileNote"
+                                        id="note" />
                                 </div>
-                                <input type="hidden" v-model="facultyID" />
+                                <div class="mb-3">
+                                    <label for="syllabus">Syllabus</label>
+                                    <input type="file"  class="form-control" @change="fileSyllabus"
+                                        id="syllabus" />
+                                </div>
+                                <div class="mb-3">
+                                    <label for="Solution">Solution</label>
+                                    <input type="file"  class="form-control" @change="fileSolution"
+                                        id="Solution" />
+                                </div>
+                                <input type="hidden" v-model="materialID" />
 
                                 <button type="submit" class="btn btn-primary">Update</button>
                             </form>
@@ -215,26 +237,26 @@
 </template>
 
 <script setup>
-import { onMounted, ref, reactive, watch, computed } from "vue";
 import axios from "axios";
+import { computed, onMounted, reactive, ref } from "vue";
 const universityName = ref([]);
 
 const base_url = import.meta.env.VITE_API_URL;
 
 const materials = reactive({
-    name: "",
     university_id: "",
     faculty_id: "",
     semesters_id: "",
     credit_hrs: "",
     courses_id: "",
 });
-
+const note = ref("");
+const syllabus = ref("");
+const solution = ref("");
 const materialID = ref('');
 const isModalOpen = ref(false);
 
 const openModal = (id) => {
-    materials.name = id.name;
     materials.university_id = id.universities_id;
     materials.faculty_id = id.faculties_id;
     materials.semesters_id = id.semesters_id;
@@ -249,7 +271,6 @@ const closeModal = () => {
 };
 
 const resetForm = () => {
-    materials.name = "";
     materials.university_id = "";
     materials.faculty_id = "";
     materials.semesters_id = "";
@@ -301,7 +322,7 @@ const getUniversity = async () => {
     try {
         const response = await axios.get(`${base_url}university`);
         universityName.value = response.data;
-        console.log(response.data);
+        // console.log(response.data);
     } catch (error) {
         console.error("Error is :", error);
     }
@@ -313,18 +334,23 @@ onMounted(() => {
 
 const updateForm = async () => {
     const formData = new FormData();
-    formData.append("name", materials.name);
     formData.append("universities_id", materials.university_id);
     formData.append("semesters_id", materials.semesters_id);
-    formData.append("credit_hrs", materials.credit_hrs);
     formData.append("faculties_id", materials.faculty_id);
+    formData.append("courses_id", materials.courses_id);
+    formData.append("note", note.value);
+    formData.append("syllabus", syllabus.value);
+    formData.append("solution", solution.value);
 
 
     try {
         const response = await axios.post(
             `${base_url}materialUpdate/${materialID.value}`,
-            formData
-        );
+            formData,{
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
         alert("Update:" + response.data.message);
         resetForm();
         window.location.reload();
@@ -335,17 +361,33 @@ const updateForm = async () => {
         // alert("response.data.error.message");
     }
 };
+const fileNote = (e) => {
+    note.value = e.target.files[0];
+};
+const fileSyllabus = (e) => {
+    syllabus.value = e.target.files[0];
+};
+const fileSolution = (e) => {
+    solution.value = e.target.files[0];
+};
 
 const formSubmit = async () => {
     const formData = new FormData();
-    formData.append("name", courses.name);
-    formData.append("universities_id", courses.university_id);
-    formData.append("faculties_id", courses.faculty_id);
-    formData.append("semesters_id", courses.semesters_id);
-    formData.append("credit_hrs", courses.credit_hrs);
+    formData.append("universities_id", materials.university_id);
+    formData.append("faculties_id", materials.faculty_id);
+    formData.append("semesters_id", materials.semesters_id);
+    formData.append("courses_id", materials.courses_id);
+    formData.append("note", note.value);
+    formData.append("syllabus", syllabus.value);
+    formData.append("solution", solution.value);
 
     try {
-        const response = await axios.post(`${base_url}courses/add`, formData);
+        const response = await axios.post(`${base_url}material/add`, formData,{
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    
+    });
         alert("Update:" + response.data.message);
         resetForm();
         window.location.reload();
@@ -356,7 +398,7 @@ const formSubmit = async () => {
     }
 };
 
-const deleteCourses = async (id) => {
+const deleteMaterial = async (id) => {
     try {
         // Show confirmation dialog
         const confirmed = window.confirm(
@@ -365,7 +407,7 @@ const deleteCourses = async (id) => {
 
         if (confirmed) {
             // If user confirms, send delete request
-            const response = await axios.delete(`${base_url}courseDelete/${id}`);
+            const response = await axios.delete(`${base_url}materialDelete/${id}`);
             window.location.reload();
         } else {
             console.log("Deletion canceled by user");

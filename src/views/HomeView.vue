@@ -1,8 +1,11 @@
 <template>
-  <div class="bg-success-subtle">
+  <div >
     <Navbar/>
     <Crousel/>
+    <Explore />
+    <StudyToolVue/>
     <Card :name="universityName.value"/>
+    <FeaturedColleges/>
     <Footer/>
   </div>
   
@@ -10,12 +13,16 @@
 
 <script setup>
 // import { router } from 'vue-router';
-import Navbar from './front/components/Navbar.vue';
-import Crousel from './front/components/Crousel.vue';
-import Card from './front/components/Card.vue'
-import Footer from './front/components/Footer.vue';
 import axios from 'axios';
 import { onMounted, reactive } from 'vue';
+import Card from './front/components/Card.vue';
+import Crousel from './front/components/Crousel.vue';
+import Footer from './front/components/Footer.vue';
+import Navbar from './front/components/Navbar.vue';
+import StudyToolVue from './front/components/StudyTool.vue';
+import Explore from './front/components/Explore.vue';
+import FeaturedColleges from './front/components/FeaturedCollege.vue';
+
 
 const base_url = import.meta.env.VITE_API_URL;
 
