@@ -89,6 +89,11 @@ const routes = [
     path : "/viewAllColleges",
     name : "allColleges",
     component : () => import("../views/front/CollegesAll/allCollegesView.vue"),
+  },
+  {
+    path : "/viewAllUniversity",
+    name : "allUniversity",
+    component : () => import("../views/front/UniversityAll/allUniversityView.vue"),
   }
 ];
 

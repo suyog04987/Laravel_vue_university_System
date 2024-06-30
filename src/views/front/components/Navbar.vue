@@ -1,19 +1,53 @@
 <template>
-  <nav class="navbar bg-body-tertiary">
-    <div class="bg-success-subtle container-fluid">
-      <router-link class="navbar-brand d-flex" to="/">
-        <img src="https://www.see.gov.np/resources/see/img/logo.png" alt="Logo" width="50" height="42"
-          class="d-inline-block align-text-top">
-        <div class="bg-secondary-subtle border-1 font-monospace mx-md-3 p-1 rounded-2"> Intern Project </div>
-      </router-link>
-        <div class="d-flex">
-      <span class="mx-4"> <router-link class="btn btn-success" to="/">Home</router-link></span>
-      <span class="mx-4"><router-link class="btn btn-success" to="/about">About</router-link> </span>
-      <span class="mx-4"><router-link class="btn btn-success" to="/contact">Contact</router-link> </span>
+  <div class="navbar-container">
+    <!-- Updated the src attribute to use an absolute path -->
+    <router-link class="navbar-brand" to="/"> <img src="../../../assets/uniInfo.png" alt="Logo" class="logo-in-front"></router-link>
+    <nav class="navbar navbar-expand-lg bg-body-secondary">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item mx-2">
+              <router-link class="nav-link btn btn-outline-primary" to="/">Home</router-link>
+            </li>
+            <li class="nav-item mx-2">
+              <router-link class="nav-link btn btn-outline-primary" to="/about">About</router-link>
+            </li>
+            <li class="nav-item mx-2">
+              <router-link class="nav-link btn btn-outline-primary" to="/contact">Contact</router-link>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
-  </nav>
+    </nav>
+  </div>
 </template>
+
+<style>
+.navbar-container {
+  position: relative;
+}
+
+.logo-in-front {
+  position: absolute;
+    top: 95%;
+    left: 6%;
+    transform: translate(-50%, -50%);
+    z-index: 1050;
+    max-width: 175px;
+}
+
+.nav-link {
+  transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+
+.nav-link:hover, .nav-link:focus {
+  color: #fff !important;
+  background-color: #007bff !important; 
+}
+</style>
 
 <script setup>
 import { RouterLink } from 'vue-router';

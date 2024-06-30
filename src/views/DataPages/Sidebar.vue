@@ -14,6 +14,16 @@
           <li>
             <router-link to="/courses">Courses</router-link>
           </li>
+          <li>
+            <router-link to="/testimonial">Testimonial</router-link>
+          </li>
+          <li>
+            <router-link to="/materials">Material</router-link>
+          </li>
+          <li>
+            <router-link to="/colleges">College</router-link>
+          </li>
+          
         </ul>
       </div>
     </div>

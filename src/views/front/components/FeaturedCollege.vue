@@ -55,6 +55,12 @@ import { onMounted, ref } from "vue";
     background-color: #007bff;
     border-top: none;
   }
+
+  .card:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease-in-out;
+  background: rgb(142, 189, 230);
+}
   
   .card-footer .btn-link {
     color: #fff;

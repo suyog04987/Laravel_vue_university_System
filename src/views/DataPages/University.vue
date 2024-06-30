@@ -20,6 +20,8 @@
           <th scope="col">University Name</th>
           <th scope="col">Details</th>
           <th scope="col">Address</th>
+          <th scope="col">Rank</th>
+          <th scope="col">Enrollment</th>
           <th scope="col">Image Url</th>
           <th scope="col">Action</th>
         </tr>
@@ -30,6 +32,8 @@
           <td>{{ data.name }}</td>
           <td>{{ data.details }}</td>
           <td>{{ data.address }}</td>
+          <td>{{ data.rank }}</td>
+          <td>{{ data.enrollment_number }}</td>
           <td style="max-width: 200px; overflow: hidden; word-wrap: break-word">
             {{ data.image_url }}
           </td>
@@ -118,17 +122,41 @@
                     placeholder="University Address"
                   />
                 </div>
+                <div class="mb-3">
+                  <label class="form-label" for="universityAddress"
+                    >University Address</label
+                  >
+                  <input
+                    v-model="universityName.address"
+                    id="universityAddress"
+                    class="form-control"
+                    type="text"
+                    placeholder="University Address"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label class="form-label" for="universityRank"
+                    >University Rank</label
+                  >
+                  <input
+                    v-model="universityName.rank"
+                    id="universityRank"
+                    class="form-control"
+                    type="number"
+                    placeholder="University Rank"
+                  />
+                </div>
 
                 <div class="mb-3">
                   <label class="form-label" for="universityImageUrl"
-                    >University Image Url</label
+                    >University Enrollment Number</label
                   >
                   <input
-                    v-model="universityName.image_url"
-                    id="universityImageUrl"
+                    v-model="universityName.enrollment_number"
+                    id="universityEnrollmentNumber"
                     class="form-control"
                     type="text"
-                    placeholder="University Image Url"
+                    placeholder="University Enrollment Number"
                   />
                 </div>
 
@@ -212,6 +240,31 @@
                     placeholder="University Address"
                   />
                 </div>
+                <div class="mb-3">
+                  <label class="form-label" for="universityRank"
+                    >University Rank</label
+                  >
+                  <input
+                    v-model="universityName.rank"
+                    id="universityRank"
+                    class="form-control"
+                    type="number"
+                    placeholder="University Rank"
+                  />
+                </div>
+
+                <div class="mb-3">
+                  <label class="form-label" for="universityImageUrl"
+                    >University Enrollment Number</label
+                  >
+                  <input
+                    v-model="universityName.enrollment_number"
+                    id="universityEnrollmentNumber"
+                    class="form-control"
+                    type="text"
+                    placeholder="University Enrollment Number"
+                  />
+                </div>
 
                 <div class="mb-3">
                   <label class="form-label" for="universityImageUrl"
@@ -268,6 +321,8 @@ const openModal = (id) => {
   universityName.details = id.details;
   universityName.address = id.address;
   universityName.image_url = id.image_url;
+  universityName.rank = id.rank;
+  universityName.enrollment_number = id.enrollment_number;
   universityID.value = id.id;
   console.log(universityID.value);
   isModalOpen.value = true;
@@ -282,6 +337,8 @@ const universityName = reactive({
   details: "",
   address: "",
   image_url: "",
+  rank: "",
+  enrollment_number: "",
 });
 
 const resetForm = () => {
@@ -289,6 +346,8 @@ const resetForm = () => {
   universityName.details = "";
   universityName.address = "";
   universityName.image_url = "";
+  universityName.rank = "";
+  universityName.enrollment_number = "";
 };
 
 const base_url = import.meta.env.VITE_API_URL;
@@ -334,6 +393,8 @@ const updateForm = async () => {
   formData.append("details", universityName.details);
   formData.append("address", universityName.address);
   formData.append("image_url", universityName.image_url);
+  formData.append("rank", universityName.rank);
+  formData.append("enrollment_number", universityName.enrollment_number);
   console.log(formData);
 
   try {
@@ -358,6 +419,8 @@ const formSubmit = async () => {
   formData.append("details", universityName.details);
   formData.append("address", universityName.address);
   formData.append("image_url", universityName.image_url);
+  formData.append("rank", universityName.rank);
+  formData.append("enrollment_number", universityName.enrollment_number);
   console.log(formData);
 
   try {
