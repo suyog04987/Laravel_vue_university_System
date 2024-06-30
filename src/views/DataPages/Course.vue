@@ -181,7 +181,7 @@
                     id="semesterName"
                   />
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" @click="closeModal" class="btn btn-primary">Submit</button>
               </form>
             </div>
           </div>
@@ -299,7 +299,7 @@
                 </div>
                 <input type="hidden" v-model="facultyID" />
 
-                <button type="submit" class="btn btn-primary">Update</button>
+                <button type="submit"  @click="closeModal" class="btn btn-primary">Update</button>
               </form>
             </div>
           </div>
@@ -420,8 +420,7 @@ const updateForm = async () => {
       formData
     );
     alert("Update:" + response.data.message);
-    resetForm();
-    window.location.reload();
+   getUniversity();
     // Handle successful response if needed
   } catch (error) {
     // Handle error
@@ -441,8 +440,7 @@ const formSubmit = async () => {
   try {
    const response = await axios.post(`${base_url}courses/add`, formData);
     alert("Update:" + response.data.message);
-    resetForm();
-    window.location.reload();
+    getUniversity();
     // Handle successful response if needed
   } catch (error) {
     // Handle error
@@ -460,7 +458,7 @@ const deleteCourses = async (id) => {
     if (confirmed) {
       // If user confirms, send delete request
       const response = await axios.delete(`${base_url}courseDelete/${id}`);
-      window.location.reload();
+      getUniversity();
     } else {
       console.log("Deletion canceled by user");
     }

@@ -1,147 +1,77 @@
 <template>
-   
-        <!-- Remove the container if you want to extend the Footer to full width. -->
-
-<!-- Footer -->
-<footer
-        class="text-center text-lg-start text-white"
-        style="background-color: #1c2331"
-        >
-  <!-- Section: Social media -->
-  <section
-           class="bg-success-subtle text-bg-info d-flex justify-content-between p-4"
-           style="background-color: #6351ce"
-           >
-    <!-- Left -->
-    <div class="me-5">
-      <span>Get connected with us on social networks:</span>
-    </div>
-    <!-- Left -->
-
-    <!-- Right -->
-    <div>
-      <a href="" class="text-white me-4">
-        <i class="fab fa-facebook-f"></i>
-      </a>
-      <a href="" class="text-white me-4">
-        <i class="fab fa-twitter"></i>
-      </a>
-      <a href="" class="text-white me-4">
-        <i class="fab fa-google"></i>
-      </a>
-      <a href="" class="text-white me-4">
-        <i class="fab fa-instagram"></i>
-      </a>
-      <a href="" class="text-white me-4">
-        <i class="fab fa-linkedin"></i>
-      </a>
-      <a href="" class="text-white me-4">
-        <i class="fab fa-github"></i>
-      </a>
-    </div>
-    <!-- Right -->
-  </section>
-  <!-- Section: Social media -->
-
-  <!-- Section: Links  -->
-  <section class="">
-    <div class="container text-center text-md-start mt-5">
-      <!-- Grid row -->
-      <div class="row mt-3">
-        <!-- Grid column -->
-        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-          <!-- Content -->
-          <h6 class="text-uppercase fw-bold">Company name</h6>
-          <hr
-              class="mb-4 mt-0 d-inline-block mx-auto"
-              style="width: 60px; background-color: #7c4dff; height: 2px"
-              />
-          <p>
-            Here you can use rows and columns to organize your footer
-            content. Lorem ipsum dolor sit amet, consectetur adipisicing
-            elit.
-          </p>
+  <footer class="bg-light pt-5 pb-3">
+    <div class="container">
+      <div class="row text-center text-md-left">
+        <div class="col-md-6 col-lg-3">
+          <h5 class="mb-3">For students</h5>
+          <ul class="list-unstyled">
+            <li><a href="#">Search study materials</a></li>
+            <li><a href="#">Rewards store</a></li>
+            <li><a href="#">Community Guidelines</a></li>
+          </ul>
         </div>
-        <!-- Grid column -->
-
-        <!-- Grid column -->
-        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-          <!-- Links -->
-          <h6 class="text-uppercase fw-bold">Products</h6>
-          <hr
-              class="mb-4 mt-0 d-inline-block mx-auto"
-              style="width: 60px; background-color: #7c4dff; height: 2px"
-              />
-          <p>
-            <a href="#!" class="text-white">MDBootstrap</a>
-          </p>
-          <p>
-            <a href="#!" class="text-white">MDWordPress</a>
-          </p>
-          <p>
-            <a href="#!" class="text-white">BrandFlow</a>
-          </p>
-          <p>
-            <a href="#!" class="text-white">Bootstrap Angular</a>
-          </p>
+        <div class="col-md-6 col-lg-3">
+          <h5 class="mb-3">For companies</h5>
+          <ul class="list-unstyled">
+            <li><a href="#">Press</a></li>
+            <li><a href="#">Find talents</a></li>
+            <li><a href="#">Employer branding</a></li>
+            <li><a href="#">Arrange a demo</a></li>
+          </ul>
         </div>
-        <!-- Grid column -->
-
-        <!-- Grid column -->
-        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-          <!-- Links -->
-          <h6 class="text-uppercase fw-bold">Useful links</h6>
-          <hr
-              class="mb-4 mt-0 d-inline-block mx-auto"
-              style="width: 60px; background-color: #7c4dff; height: 2px"
-              />
-          <p>
-            <a href="#!" class="text-white">Your Account</a>
-          </p>
-          <p>
-            <a href="#!" class="text-white">Become an Affiliate</a>
-          </p>
-          <p>
-            <a href="#!" class="text-white">Shipping Rates</a>
-          </p>
-          <p>
-            <a href="#!" class="text-white">Help</a>
-          </p>
+        <div class="col-md-6 col-lg-3 mt-4 mt-md-0">
+          <h5 class="mb-3">Get the app</h5>
+          <a href="#"><img src="../../../assets/apple.svg" alt="App Store" class="img-fluid mb-2" /></a>
+          <div class="mb-2">4.7</div>
+          <a href="#"><img src="../../../assets/google.svg" alt="Google Play" class="img-fluid mb-2" /></a>
+          <div>4.3</div>
         </div>
-        <!-- Grid column -->
-
-        <!-- Grid column -->
-        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-          <!-- Links -->
-          <h6 class="text-uppercase fw-bold">Contact</h6>
-          <hr
-              class="mb-4 mt-0 d-inline-block mx-auto"
-              style="width: 60px; background-color: #7c4dff; height: 2px"
-              />
-          <p><i class="fas fa-home mr-3"></i> New York, NY 10012, US</p>
-          <p><i class="fas fa-envelope mr-3"></i> info@example.com</p>
-          <p><i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
-          <p><i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
+        <div class="col-md-6 col-lg-3 mt-4 mt-md-0 text-md-right">
+          <h5 class="mb-3">Follow us</h5>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#" class="h1 m-5 ml-3"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="h1 ml-3"><i class="bi bi-instagram"></i></a>
         </div>
-        <!-- Grid column -->
       </div>
-      <!-- Grid row -->
+      <div class="row mt-4 text-center">
+        <div class="col">
+          <ul class="list-inline">
+            <li class="list-inline-item"><a href="#">Terms of Use</a></li>
+            <li class="list-inline-item"><a href="#">Privacy</a></li>
+            <li class="list-inline-item"><a href="#">Imprint</a></li>
+            <li class="list-inline-item"><a href="#">About us</a></li>
+            <li class="list-inline-item"><a href="#">Privacy Settings</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="row mt-3 text-center">
+        <div class="col">
+          <p>Copyright © UniInfo 2024</p>
+        </div>
+      </div>
     </div>
-  </section>
-  <!-- Section: Links  -->
-
-  <!-- Copyright -->
-  <div
-       class="text-center p-3"
-       style="background-color: rgba(0, 0, 0, 0.2)"
-       >
-    © 2020 Copyright:
-    <a class="text-white" href="https://mdbootstrap.com/"
-       >MDBootstrap.com</a
-      >
-  </div>
-  <!-- Copyright -->
-</footer>
-<!-- Footer -->
-<!-- End of .container -->
+  </footer>
 </template>
+
+<script>
+export default {
+  name: 'Footer',
+};
+</script>
+
+<style scoped>
+footer {
+  background-color: #f8f9fa;
+}
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+.fab {
+  font-size: 1.5rem;
+  color: #007bff;
+}
+</style>

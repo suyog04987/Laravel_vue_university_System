@@ -7,6 +7,7 @@
     <StudyToolVue/>
     <Card :name="universityName.value"/>
     <FeaturedColleges/>
+    <AddView/>
     <Footer/>
   </div>
   
@@ -24,6 +25,7 @@ import Footer from './front/components/Footer.vue';
 import Navbar from './front/components/Navbar.vue';
 import Search from './front/components/Search.vue';
 import StudyToolVue from './front/components/StudyTool.vue';
+import AddView from './front/components/addview.vue';
 
 
 const base_url = import.meta.env.VITE_API_URL;
