@@ -66,6 +66,18 @@ const routes = [
     component: () => import("../views/DataPages/Colleges.vue"),
   },
   {
+    path: "/teams",
+    name: "team",
+    meta: { requiresAuth: true },
+    component: () => import("../views/DataPages/Team.vue"),
+  },
+  {
+    path: "/admin/feedback",
+    name: "Feedback",
+    meta: { requiresAuth: true },
+    component: () => import("../views/DataPages/Feeback.vue"),
+  },
+  {
     path: "/universityView/:id",
     name: "universityView",
     component: () => import("../views/front/Universities/University.vue"),
@@ -94,7 +106,13 @@ const routes = [
     path : "/viewAllUniversity",
     name : "allUniversity",
     component : () => import("../views/front/UniversityAll/allUniversityView.vue"),
+  },
+  {
+    path : "/contact",
+    name : "contact",
+    component : () => import("../views/front/Contact/Contact.vue"),
   }
+
 ];
 
 export default routes;

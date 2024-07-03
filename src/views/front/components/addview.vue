@@ -7,7 +7,7 @@
           <p class="lead">
             UniInfo connects students and encourages them to help each other. Together we master every exam, every assignment and every job interview.
           </p>
-          <a href="#" class="btn btn-primary btn-lg mt-4">More about UniInfo</a>
+          <router-link to="/about" class="btn btn-primary btn-lg mt-4">More about UniInfo</router-link>
         </div>
         <!-- Image Column -->
         <div class="col-md-6">

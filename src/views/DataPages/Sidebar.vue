@@ -23,6 +23,12 @@
           <li>
             <router-link to="/colleges">College</router-link>
           </li>
+          <li>
+            <router-link to="/teams">College</router-link>
+          </li>
+          <li>
+            <router-link to="/admin/feedback">College</router-link>
+          </li>
           
         </ul>
       </div>

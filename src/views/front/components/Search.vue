@@ -23,7 +23,7 @@
   
   <style scoped>
   .bodyy {
-    background-color:rgb(54 90 144) !important
+    background-color:rgb(28 101 228 / 82%) !important
   }
   
   input::placeholder {

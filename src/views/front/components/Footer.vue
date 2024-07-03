@@ -28,9 +28,14 @@
         </div>
         <div class="col-md-6 col-lg-3 mt-4 mt-md-0 text-md-right">
           <h5 class="mb-3">Follow us</h5>
-          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <!-- <a href="#"><i class="fab fa-linkedin"></i></a>
           <a href="#" class="h1 m-5 ml-3"><i class="bi bi-facebook"></i></a>
-          <a href="#" class="h1 ml-3"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="h1 ml-3"><i class="bi bi-instagram"></i></a> -->
+          <a href="#" class="h1 m-2 ml-3"><i class="bi bi-facebook"></i></a>
+              <a href="#" class="h1 m-2 ml-3"><i class="bi bi-twitter"></i></a>
+              <a href="#" class="h1 m-2 ml-3"><i class="bi bi-linkedin"></i></a>
+              <a href="#" class="h1 m-2 ml-3"><i class="bi bi-instagram"></i></a>
+              <a href="#" class="h1  m-2 ml-3"><i class="bi bi-youtube"></i></a>
         </div>
       </div>
       <div class="row mt-4 text-center">
