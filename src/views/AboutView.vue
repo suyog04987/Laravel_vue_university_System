@@ -52,6 +52,9 @@
       </div>
     </div>
   </div>
+  
+  <hr style="border-color: blueviolet; border-width: 10px; border-style: solid;">
+
   <div class="container mb-5">
     <div class="text-center my-5">
       <h2 class="text-center fw-bolder" style="font-size: 4rem;">Testimonial</h2>
@@ -102,7 +105,7 @@
 
         <h2 class="mt-5 fw-bolder text-center">Solution</h2>
         <p class="text-center mx-4 fs-5">Being a student from Information Technology (IT Background), we developed a way of dealing with the problem
-          by introducing the “Saral Notes” which is an educational platform of Vine Software Innovation Company (Pvt.)
+          by introducing the “UniInfo” which is an educational platform of xyz Software Innovation Company (Pvt.)
           Ltd. We have introduced a collaborative model of note sharing which is prepared by the creative students of
           different colleges in shared among themselves to create a final version which is updated in a timely basis in
           the website and app.

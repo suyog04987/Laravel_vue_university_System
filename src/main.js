@@ -1,6 +1,7 @@
 import "bootstrap";
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import "bootstrap/dist/css/bootstrap.min.css";
+import 'vue-multiselect/dist/vue-multiselect.css';
 import './assets/main.css';
 
 

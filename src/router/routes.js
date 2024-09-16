@@ -111,6 +111,11 @@ const routes = [
     path : "/contact",
     name : "contact",
     component : () => import("../views/front/Contact/Contact.vue"),
+  },
+  {
+    path: "/findFaculty",
+    name: "findFaculty",
+    component: () => import("../views/front/FacultyReco/algo.vue"),
   }
 
 ];

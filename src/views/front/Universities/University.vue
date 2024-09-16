@@ -13,14 +13,15 @@
       <h2 class="fw-bold fs-2 text-primary-emphasis">Overview</h2>
       <p class="fw-light fs-3 text-primary">{{ universityData.details }}</p>
     </div>
+    <!-- {{ universityData.faculty }} -->
   <div class="container my-5">
     <h2 class="fw-bold fs-2 text-primary-emphasis">Bachelor's Courses</h2>
-    <div v-if="universityData" class="row" data-aos="fade-up" data-aos-delay="100">
+    <div v-if="universityData" class="row justify-content-center" data-aos="fade-up" data-aos-delay="100">
       <div v-for="(data, index) in universityData.faculty" :key="index"
-        class="col-md-6 my-2 d-flex justify-content-center">
-        <router-link :to="`/semesterView/${data.id}`" class="oval-shape text-decoration-none text-bg-warning">
+      class="bg-secondary-subtle d-flex h2  my-2 p-3 rounded-4">
+        <router-link :to="`/semesterView/${data.id}`" class="text-decoration-none">
           {{ data.name }}
-        </router-link>
+        </router-link><span class=""><a :href="data.syllabusUrl" target="#" class="mx-xl-5 text-warning text-decoration-none"><i class="bi bi-download"></i>Syllabus</a></span>
       </div>
     </div>
   </div>
