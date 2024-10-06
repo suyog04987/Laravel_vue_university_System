@@ -70,7 +70,7 @@ const formSubmit = async () =>{
     formData.append("password", user.password);
     await login(formData);
     console.log("Login Success")
-    router.push("/admin");
+    router.push("/dashboard");
   }
   catch(error){
     console.error("Error Login:", error);

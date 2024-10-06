@@ -4,8 +4,8 @@ const routes = [
     component: () => import('../views/DataPages/Layout.vue'),
     children: [
       {
-        path: '/index',
-        name: 'index',
+        path: '/dashboard',
+        name: 'dashboard',
         meta: { requiresAuth: true },
         component: () => import('../views/DataPages/Index.vue'),
       },

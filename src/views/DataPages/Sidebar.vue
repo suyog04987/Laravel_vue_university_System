@@ -14,9 +14,17 @@
      ></a>
     <div v-show="isSidebarVisible" class="sidebar fs-5 fw-semibold p-3">
       <div class="logo">
-        <img src="../../assets/uniInfo.png" alt="Logo" />
+       <a href="/dashboard"><img src="../../assets/uniInfo.png" alt="Logo" /> </a>
       </div>
       <ul class="list-unstyled components">
+        <li>
+          <router-link 
+          class="px-2 py-2"
+          to="/dashboard"
+          active-class="active-link">
+        <i class="bi bi-speedometer2">  Dashboard</i>
+        </router-link>
+        </li>
         <li>
           <router-link
             class="px-2 py-2"
