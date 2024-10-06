@@ -11,7 +11,7 @@
         <img src="../assets/uniInfo.png" alt="Saral Notes Logo" class="logo" />
         <h3>UniInfo NOTES</h3>
         <p>"Learn something new today"</p>
-        <p>An educational platform of ABC Software Innovation Company Pvt. Ltd.</p>
+        <p>An educational Platform of ABC Software Innovation Company Pvt. Ltd.</p>
       </div>
       <!-- <div class="right-section">
         <img src="../assets/notebook.png" alt="Space" class="space-image" />
@@ -26,7 +26,7 @@
     <div class="text-center my-5">
       <h2 class="text-center fw-bolder" style="font-size: 4rem;">Our Teams</h2>
       <p class="text-center mt-3 fs-3">
-        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+        Duis aute irure dolor in suyog eprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
         sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum
         dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
       </p>

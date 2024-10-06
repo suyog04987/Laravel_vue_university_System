@@ -1,29 +1,25 @@
 <template>
-  <div class="container py-3 px-2">
-    <div class="d-flex d-flex justify-content-md-between">
+  <div class="py-3 px-2">
+    <div class="d-flex d-flex justify-content-md-between mb-4 ">
       <h1 class="bg-info-subtle border m-1 p-0 rounded-start text-lg-start">
         University Details
       </h1>
-      <button
-        type="button"
-        class="bg-primary-subtle btn"
-        data-bs-toggle="modal"
-        data-bs-target="#exampleModal"
-      >
+      <button type="button" class="bg-primary-subtle btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
         Add University
       </button>
     </div>
-    <table class="table table-bordered">
+    <div class="top">
+    <table id="tablee" class="table display">
       <thead class="thead-dark">
         <tr>
-          <th scope="col">SN</th>
-          <th scope="col">University Name</th>
-          <th scope="col">Details</th>
-          <th scope="col">Address</th>
-          <th scope="col">Rank</th>
-          <th scope="col">Enrollment</th>
-          <th scope="col">Image Url</th>
-          <th scope="col">Action</th>
+          <th class="text-center">SN</th>
+          <th class="text-center">University Name</th>
+          <th class="text-center">Details</th>
+          <th class="text-center">Address</th>
+          <th class="text-center">Rank</th>
+          <th class="text-center">Enrollment</th>
+          <th class="text-center">Image Url</th>
+          <th class="text-center">Action</th>
         </tr>
       </thead>
       <tbody>
@@ -37,47 +33,42 @@
           <td style="max-width: 200px; overflow: hidden; word-wrap: break-word">
             {{ data.image_url }}
           </td>
-          <td class="d-flex px-2">
-            <button
-              class="btn btn-success"
-              @click="openModal(data)"
-              data-bs-toggle="modal"
-              data-bs-target="#exampleModal1"
-            >
-              Edit
-            </button>
-            <button
-              @click="deleteUniversity(data.id)"
-              class="btn btn-danger px-2 mx-2"
-            >
-              Delete
-            </button>
+          <td class="">
+            <div class="dropdown">
+              <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                ...
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <li>
+                  <button class="dropdown-item" @click="openModal(data)" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal1">
+                    Edit
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-item" @click="deleteUniversity(data.id)">
+                    Delete
+                  </button>
+                </li>
+              </ul>
+            </div>
           </td>
         </tr>
       </tbody>
     </table>
   </div>
+  </div>
 
   <!-- Button trigger modal -->
 
   <!-- Modal for adding -->
-  <div
-    class="modal fade"
-    id="exampleModal"
-    tabindex="-1"
-    aria-labelledby="exampleModalLabel"
-    aria-hidden="true"
-  >
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Add University</h5>
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="modal"
-            aria-label="Close"
-          ></button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <div class="card">
@@ -85,79 +76,37 @@
               <form @submit.prevent="formSubmit">
                 <h2 class="card-title">Add University</h2>
                 <div class="mb-3">
-                  <label class="form-label" for="universityName"
-                    >University Name</label
-                  >
-                  <input
-                    v-model="universityName.name"
-                    id="universityName"
-                    class="form-control"
-                    type="text"
-                    placeholder="Enter University name"
-                  />
+                  <label class="form-label" for="universityName">University Name</label>
+                  <input v-model="universityName.name" id="universityName" class="form-control" type="text"
+                    placeholder="Enter University name" />
                 </div>
 
                 <div class="mb-3">
-                  <label class="form-label" for="universityDetails"
-                    >University Details</label
-                  >
-                  <input
-                    v-model="universityName.details"
-                    id="universityDetails"
-                    class="form-control"
-                    type="text"
-                    placeholder="Brief about University"
-                  />
+                  <label class="form-label" for="universityDetails">University Details</label>
+                  <input v-model="universityName.details" id="universityDetails" class="form-control" type="text"
+                    placeholder="Brief about University" />
                 </div>
 
                 <div class="mb-3">
-                  <label class="form-label" for="universityAddress"
-                    >University Address</label
-                  >
-                  <input
-                    v-model="universityName.address"
-                    id="universityAddress"
-                    class="form-control"
-                    type="text"
-                    placeholder="University Address"
-                  />
+                  <label class="form-label" for="universityAddress">University Address</label>
+                  <input v-model="universityName.address" id="universityAddress" class="form-control" type="text"
+                    placeholder="University Address" />
                 </div>
                 <div class="mb-3">
-                  <label class="form-label" for="universityAddress"
-                    >University Address</label
-                  >
-                  <input
-                    v-model="universityName.address"
-                    id="universityAddress"
-                    class="form-control"
-                    type="text"
-                    placeholder="University Address"
-                  />
+                  <label class="form-label" for="universityAddress">University Address</label>
+                  <input v-model="universityName.address" id="universityAddress" class="form-control" type="text"
+                    placeholder="University Address" />
                 </div>
                 <div class="mb-3">
-                  <label class="form-label" for="universityRank"
-                    >University Rank</label
-                  >
-                  <input
-                    v-model="universityName.rank"
-                    id="universityRank"
-                    class="form-control"
-                    type="number"
-                    placeholder="University Rank"
-                  />
+                  <label class="form-label" for="universityRank">University Rank</label>
+                  <input v-model="universityName.rank" id="universityRank" class="form-control" type="number"
+                    placeholder="University Rank" />
                 </div>
 
                 <div class="mb-3">
-                  <label class="form-label" for="universityImageUrl"
-                    >University Enrollment Number</label
-                  >
-                  <input
-                    v-model="universityName.enrollment_number"
-                    id="universityEnrollmentNumber"
-                    class="form-control"
-                    type="text"
-                    placeholder="University Enrollment Number"
-                  />
+                  <label class="form-label" for="universityImageUrl">University Enrollment Number</label>
+                  <input v-model="universityName.enrollment_number" id="universityEnrollmentNumber" class="form-control"
+                    type="text" placeholder="University Enrollment Number" />
                 </div>
 
                 <button type="submit" class="btn btn-primary">Save</button>
@@ -166,11 +115,7 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button
-            type="button"
-            class="btn btn-secondary"
-            data-bs-dismiss="modal"
-          >
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
             Close
           </button>
         </div>
@@ -178,24 +123,13 @@
     </div>
   </div>
   <!-- Modal for editing -->
-  <div
-    class="modal fade"
-    id="exampleModal1"
-    tabindex="-1"
-    aria-labelledby="exampleModalLabel"
-    aria-hidden="true"
-  >
+  <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" v-show="isModalOpen">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Edit University</h5>
-          <button
-            type="button"
-            @click="closeModal"
-            class="btn-close"
-            data-bs-dismiss="modal"
-            aria-label="Close"
-          ></button>
+          <button type="button" @click="closeModal" class="btn-close" data-bs-dismiss="modal"
+            aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <div class="card">
@@ -203,80 +137,38 @@
               <form @submit.prevent="updateForm">
                 <h2 class="card-title">Edit University</h2>
                 <div class="mb-3">
-                  <label class="form-label" for="universityName"
-                    >University Name</label
-                  >
-                  <input
-                    v-model="universityName.name"
-                    id="universityName"
-                    class="form-control"
-                    type="text"
-                    placeholder="Enter University name"
-                  />
+                  <label class="form-label" for="universityName">University Name</label>
+                  <input v-model="universityName.name" id="universityName" class="form-control" type="text"
+                    placeholder="Enter University name" />
                 </div>
 
                 <div class="mb-3">
-                  <label class="form-label" for="universityDetails"
-                    >University Details</label
-                  >
-                  <textarea
-                    v-model="universityName.details"
-                    id="universityDetails"
-                    class="form-control"
-                    type="text"
-                    placeholder="Brief about University"
-                  ></textarea>
+                  <label class="form-label" for="universityDetails">University Details</label>
+                  <textarea v-model="universityName.details" id="universityDetails" class="form-control" type="text"
+                    placeholder="Brief about University"></textarea>
                 </div>
 
                 <div class="mb-3">
-                  <label class="form-label" for="universityAddress"
-                    >University Address</label
-                  >
-                  <input
-                    v-model="universityName.address"
-                    id="universityAddress"
-                    class="form-control"
-                    type="text"
-                    placeholder="University Address"
-                  />
+                  <label class="form-label" for="universityAddress">University Address</label>
+                  <input v-model="universityName.address" id="universityAddress" class="form-control" type="text"
+                    placeholder="University Address" />
                 </div>
                 <div class="mb-3">
-                  <label class="form-label" for="universityRank"
-                    >University Rank</label
-                  >
-                  <input
-                    v-model="universityName.rank"
-                    id="universityRank"
-                    class="form-control"
-                    type="number"
-                    placeholder="University Rank"
-                  />
+                  <label class="form-label" for="universityRank">University Rank</label>
+                  <input v-model="universityName.rank" id="universityRank" class="form-control" type="number"
+                    placeholder="University Rank" />
                 </div>
 
                 <div class="mb-3">
-                  <label class="form-label" for="universityImageUrl"
-                    >University Enrollment Number</label
-                  >
-                  <input
-                    v-model="universityName.enrollment_number"
-                    id="universityEnrollmentNumber"
-                    class="form-control"
-                    type="text"
-                    placeholder="University Enrollment Number"
-                  />
+                  <label class="form-label" for="universityImageUrl">University Enrollment Number</label>
+                  <input v-model="universityName.enrollment_number" id="universityEnrollmentNumber" class="form-control"
+                    type="text" placeholder="University Enrollment Number" />
                 </div>
 
                 <div class="mb-3">
-                  <label class="form-label" for="universityImageUrl"
-                    >University Image Url</label
-                  >
-                  <input
-                    v-model="universityName.image_url"
-                    id="universityImageUrl"
-                    class="form-control"
-                    type="text"
-                    placeholder="University Image Url"
-                  />
+                  <label class="form-label" for="universityImageUrl">University Image Url</label>
+                  <input v-model="universityName.image_url" id="universityImageUrl" class="form-control" type="text"
+                    placeholder="University Image Url" />
                   <input type="hidden" v-model="universityID" />
                 </div>
 
@@ -286,12 +178,7 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button
-            type="button"
-            class="btn btn-primary"
-            @click="closeModal"
-            data-bs-dismiss="modal"
-          >
+          <button type="button" class="btn btn-primary" @click="closeModal" data-bs-dismiss="modal">
             Close
           </button>
         </div>
@@ -308,9 +195,11 @@
   </div>
 </template>
 <script setup>
+import DataTable from 'datatables.net-dt';
+// import 'datatables.net-dt/css/dataTables.dataTables.css'
 import { $api } from "@/services/api";
 import axios from "axios";
-import { onMounted, reactive, ref } from "vue";
+import { nextTick, onMounted, reactive, ref } from "vue";
 
 const isModalOpen = ref(false);
 const universityID = ref("");
@@ -356,13 +245,18 @@ const universityData = ref();
 
 const fetchData = async () => {
   try {
-    const response = await $api('/university',{
+    const response = await $api('/university', {
       method: 'GET',
     });
     universityData.value = response;
+    await nextTick();
+    $(document).ready(function () {
+      $('#tablee').DataTable();
+    });
   } catch (error) {
   }
 };
+
 
 onMounted(() => {
   fetchData();
@@ -458,7 +352,5 @@ const formSubmit = async () => {
   margin-bottom: 10px;
 }
 
-  .table-bordered {
-    border-color: #000 !important;
-  }
+
 </style>

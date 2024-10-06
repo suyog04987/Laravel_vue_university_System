@@ -1,5 +1,5 @@
 <template>
-    <div class="container py-3 px-2">
+    <div class="py-3 px-2">
       <div class="d-flex d-flex justify-content-md-between">
         <h1 class="bg-info-subtle border m-1 p-0 rounded-start text-lg-start">
           Teams

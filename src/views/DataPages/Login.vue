@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="container mt-5">
+    <div class="mt-5">
       <div class="row justify-content-center">
         <div class="col-md-6">
           <div class="p-4 rounded shadow-lg bg-light">
@@ -70,7 +70,7 @@ const formSubmit = async () =>{
     formData.append("password", user.password);
     await login(formData);
     console.log("Login Success")
-    router.push("/index");
+    router.push("/admin");
   }
   catch(error){
     console.error("Error Login:", error);
